@@ -172,5 +172,5 @@ id  | usuario_id |   tipo   | descricao |            valor
  15 |          9 | telefone |           | 21977778888
  16 |          1 | telefone |           | 11988887777
 
-
+#### Observação final: as únicas CONSTRAINTS que utilizei foram as "de praxe" PRIMARY KEY, FOREIGHT KEY e NOT NULL. Não vi a necessidade de utilizar UNIQUE, por exemplo.
 

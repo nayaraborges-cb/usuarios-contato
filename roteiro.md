@@ -90,7 +90,7 @@ DELETE FROM usuarios WHERE id = 5;
 Nesse caso foram excluídas as informações dos usuários de id 5 e 10 (5 -> Erasmo e 10-> Jucelina)
 
 #### 👩🏿‍💻7. Criar uma tabela de contatos onde um usuário pode ter vários contatos (id, tipo de contato email ou telefone, descrição, valor) 
-* Para criar essa nova tabela usei o mesmo comando mencionado anteriormente para criar a tabela 
+* Para criar essa nova tabela usei o mesmo comando mencionado anteriormente para criar a tabela, novidade é apenas a chave estrangeira usuario_id que usa o id da tabela usuarios como referência 
 ```
  CREATE TABLE contatos (
     id SERIAL PRIMARY KEY,
@@ -100,7 +100,7 @@ Nesse caso foram excluídas as informações dos usuários de id 5 e 10 (5 -> Er
     valor VARCHAR(100)
 );
 ```
-#### 👩🏿‍💻8. Migrar os campos das colunas email e telefone para novos contatos deste usuário. Nesse caso os valores que estão na tabela usuários são inseridos na tabela contatos, não esquecendo de mencionar o uso da chave estrangeira como referência de cada usuário. 
+#### 👩🏿‍💻8. Migrar os campos das colunas email e telefone para novos contatos deste usuário. Nesse caso os valores que estão na tabela usuários são inseridos na tabela contatos, não esquecendo de mencionar o uso da chave estrangeira como referência de cada usuário (embora eu já o tenha feito na criação da tabela contatos). 
 ```
 INSERT INTO contatos (usuario_id, tipo, valor)
 SELECT id, 'email', email FROM usuarios WHERE email IS NOT NULL;
@@ -108,7 +108,7 @@ SELECT id, 'email', email FROM usuarios WHERE email IS NOT NULL;
 INSERT INTO contatos (usuario_id, tipo, valor)
 SELECT id, 'telefone', telefone FROM usuarios WHERE telefone IS NOT NULL;
 ```
-Ao executar o comando SELECT * FROM contatos é gereda a tabela abaixo onde há todas as informações dos usuários monstrando os tipos (email e telefone) e o usuário pode ser indetificado pelo seu ID na coluna usuario_id. Obs.: não preenchi a coluna descricao.
+Ao executar o comando SELECT * FROM contatos é gerada a tabela abaixo onde há todas as informações dos usuários monstrando os tipos (email e telefone) e o usuário pode ser indetificado pelo seu ID na coluna usuario_id. Como cada usuário tem dois contato os IDs se repetem e a tabela parece duplicada. Obs.: não preenchi a coluna descricao.
  id | usuario_id |   tipo   | descricao |            valor
 ----|------------|----------|-----------|-----------------------------
   1 |          2 | email    |           | bernardo.bianca@gmail.com

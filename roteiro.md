@@ -1,5 +1,5 @@
 ## Passo a passo do que foi realizado na construção do Banco de Dados instruído
-Este projeto contém os passos seguidos na criação, manipulação e modificação de um banco de dados no PostgreSQL.
+Este projeto contém os passos seguidos na criação, manipulação e modificação de um banco de dados com PostgreSQL.
 
 #### 📥 1. Instalação do PostgreSQL:
 * Acesso ao site pela url: <https://www.postgresql.org/download/>
